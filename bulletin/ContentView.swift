@@ -10,10 +10,15 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
+            
+            // Image of the Globe
+            Image(systemName: "pencil")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            // Text Label Code
+            Text("Hello, wordl!")
+                .bold()
+                
         }
         .padding()
     }
@@ -22,3 +27,10 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+
+//Vstack stands for vertical meaning a vertical stack
+
+// Image and Text bascially is stacked on top of eachother
+
+// the functions are basically modifiers with dot options scaler(.property) 
