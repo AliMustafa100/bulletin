@@ -1,7 +1,6 @@
 import SwiftUI
 
-//Going to change Opportunity Cards to Event Cards soon
-
+// Going to change Opportunity Cards to Event Cards soon
 
 struct OpportunityCard: View {
     let title: String
@@ -14,21 +13,23 @@ struct OpportunityCard: View {
         VStack(alignment: .leading) {
             Text(title)
                 .font(.headline)
+                .foregroundColor(Color.blue) // Primary color for main headings
                 .padding(.bottom, 2)
             Text(subtitle)
                 .font(.subheadline)
-                .foregroundColor(.secondary)
+                .foregroundColor(Color.gray) // Neutral tone for subtitles
             HStack {
                 Text(date)
                 Spacer()
                 Text(location)
             }
             .font(.caption)
-            .foregroundColor(.secondary)
+            .foregroundColor(Color.gray) // Neutral tone for captions
             Text(description)
                 .font(.body)
                 .lineLimit(2)
                 .padding(.vertical, 4)
+                .foregroundColor(Color.primary) // Ensure readability
             HStack {
                 Button(action: {
                     // Add save action
@@ -36,7 +37,8 @@ struct OpportunityCard: View {
                     Text("Save")
                         .font(.subheadline)
                         .padding(6)
-                        .background(Color.blue.opacity(0.2))
+                        .background(Color.blue.opacity(0.2)) // Light blue background
+                        .foregroundColor(Color.blue) // Blue text for consistency
                         .cornerRadius(8)
                 }
                 Spacer()
@@ -46,7 +48,8 @@ struct OpportunityCard: View {
                     Text("View Details")
                         .font(.subheadline)
                         .padding(6)
-                        .background(Color.green.opacity(0.2))
+                        .background(Color.green.opacity(0.2)) // Light green background
+                        .foregroundColor(Color.green) // Green text for positive action
                         .cornerRadius(8)
                 }
             }
@@ -56,7 +59,7 @@ struct OpportunityCard: View {
         .background(
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color.white)
-                .shadow(radius: 2)
+                .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2) // Subtle shadow for depth
         )
     }
 }
@@ -88,7 +91,7 @@ struct OpportunityCard_Previews: PreviewProvider {
                 )
             }
             .padding()
-            .background(Color(UIColor.systemGroupedBackground))
+            .background(Color(UIColor.systemGroupedBackground)) // Soft background for the entire view
         }
         .previewLayout(.sizeThatFits)
     }
