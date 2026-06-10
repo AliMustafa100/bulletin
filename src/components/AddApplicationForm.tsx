@@ -5,10 +5,11 @@ import { DocumentField } from './DocumentField'
 import { StatusPicker } from './StatusPicker'
 
 interface Props {
-  onAdd: (draft: ApplicationDraft) => void
+  onAdd: (draft: ApplicationDraft) => void | Promise<void>
+  submitting?: boolean
 }
 
-export function AddApplicationForm({ onAdd }: Props) {
+export function AddApplicationForm({ onAdd, submitting = false }: Props) {
   const [draft, setDraft] = useState<ApplicationDraft>(emptyDraft)
   const [expanded, setExpanded] = useState(true)
 
@@ -16,9 +17,9 @@ export function AddApplicationForm({ onAdd }: Props) {
     setDraft((prev) => ({ ...prev, [field]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    onAdd(draft)
+    await onAdd(draft)
     setDraft(emptyDraft())
   }
 
@@ -112,8 +113,12 @@ export function AddApplicationForm({ onAdd }: Props) {
           </div>
 
           <div className="form-actions">
-            <button type="submit" className="btn-primary" disabled={!hasContent}>
-              Add to Board
+            <button
+              type="submit"
+              className="btn-primary"
+              disabled={!hasContent || submitting}
+            >
+              {submitting ? 'Adding…' : 'Add to Board'}
             </button>
             {hasContent && (
               <button

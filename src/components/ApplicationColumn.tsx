@@ -6,8 +6,8 @@ import { StatusPicker } from './StatusPicker'
 
 interface Props {
   application: JobApplication
-  onUpdate: (id: string, updates: Partial<JobApplication>) => void
-  onDelete: (id: string) => void
+  onUpdate: (id: string, updates: Partial<JobApplication>) => void | Promise<void>
+  onDelete: (id: string) => void | Promise<void>
 }
 
 function ContentBlock({

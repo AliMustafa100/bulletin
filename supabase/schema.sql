@@ -264,8 +264,11 @@ create policy "Docs: delete own"
 
 -- -----------------------------------------------------------------------------
 -- 8. Helpful view (optional)
+-- Uses security_invoker so RLS on applications applies to the querying user.
 -- -----------------------------------------------------------------------------
-create or replace view public.applications_with_labels as
+create or replace view public.applications_with_labels
+  with (security_invoker = on)
+as
 select
   a.*,
   case a.status
