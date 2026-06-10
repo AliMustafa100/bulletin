@@ -1,5 +1,6 @@
 import { Navigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import { SupabaseSetupNotice } from './SupabaseSetupNotice'
 
 export function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading, configured } = useAuth()
@@ -11,11 +12,7 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
         <div className="auth-card">
           <p className="welcome-eyebrow">Bulletin</p>
           <h1>Supabase not configured</h1>
-          <p className="auth-subtitle">
-            Add <code>VITE_SUPABASE_URL</code> and{' '}
-            <code>VITE_SUPABASE_ANON_KEY</code> to your <code>.env</code> file,
-            then restart the dev server.
-          </p>
+          <SupabaseSetupNotice />
         </div>
       </div>
     )

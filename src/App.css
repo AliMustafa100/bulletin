@@ -825,6 +825,40 @@
   pointer-events: none;
 }
 
+.supabase-setup {
+  margin-bottom: 1rem;
+}
+
+.setup-steps {
+  margin-top: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-hover);
+  border: 1px solid var(--border);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.setup-steps p {
+  margin: 0 0 0.5rem;
+}
+
+.setup-steps ol {
+  margin: 0 0 0.75rem 1.1rem;
+  padding: 0;
+}
+
+.setup-steps li {
+  margin-bottom: 0.35rem;
+}
+
+.setup-steps code {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--text-heading);
+}
+
 .status-field label {
   font-size: 0.875rem;
   font-weight: 500;

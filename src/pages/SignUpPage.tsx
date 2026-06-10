@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Link, Navigate } from 'react-router-dom'
+import { SupabaseSetupNotice } from '../components/SupabaseSetupNotice'
 import { useAuth } from '../contexts/AuthContext'
 
 export function SignUpPage() {
@@ -66,12 +67,7 @@ export function SignUpPage() {
           Save applications, resumes, and CVs securely in the cloud.
         </p>
 
-        {!configured && (
-          <p className="auth-error">
-            Supabase is not configured. Add your project URL and anon key to{' '}
-            <code>.env</code>.
-          </p>
-        )}
+        {!configured && <SupabaseSetupNotice />}
 
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="field">
